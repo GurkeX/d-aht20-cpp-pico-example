@@ -25,7 +25,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(temp_humid_sensor temp_humid_sensor.cpp )
+add_executable(temp_humid_sensor temp_humid_sensor.c )
 
 pico_set_program_name(temp_humid_sensor "temp_humid_sensor")
 pico_set_program_version(temp_humid_sensor "0.1")
@@ -33,9 +33,17 @@ pico_set_program_version(temp_humid_sensor "0.1")
 pico_enable_stdio_uart(temp_humid_sensor 1)
 pico_enable_stdio_usb(temp_humid_sensor 0)
 
+add_subdirectory("dht20-pico")
+
+target_include_directories(dht20 PUBLIC "dht20-pico")
+
 # Add the standard library to the build
 target_link_libraries(temp_humid_sensor
-        pico_stdlib)
+        pico_stdlib
+        hardware_i2c
+        dht20
+        pico_binary_info
+        )
 
 # Add the standard include files to the build
 target_include_directories(temp_humid_sensor PRIVATE
