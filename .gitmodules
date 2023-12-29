@@ -1,0 +1,3 @@
+[submodule "d-aht20-cpp-pico"]
+	path = d-aht20-cpp-pico
+	url = https://github.com/GurkeX/d-aht20-cpp-pico.git
