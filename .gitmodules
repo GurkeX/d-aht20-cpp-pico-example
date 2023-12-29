@@ -1,3 +1,0 @@
-[submodule "dht20-pico"]
-	path = dht20-pico
-	url = https://github.com/sampsapenna/dht20-pico.git
