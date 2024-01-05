@@ -34,15 +34,15 @@ pico_enable_stdio_uart(temp_humid_sensor 1)
 pico_enable_stdio_usb(temp_humid_sensor 0)
 
 
-add_subdirectory("libraries/d_aht20_cpp_pico")
-target_include_directories(d_aht20cpp PUBLIC "d_aht20_cpp_pico")
+add_subdirectory("libraries/d-aht20-cpp-pico")
+target_include_directories(d-aht20cpp PUBLIC "d-aht20-cpp-pico")
 
 
 # Add the standard library to the build
 target_link_libraries(temp_humid_sensor
         pico_stdlib
         hardware_i2c
-        d_aht20cpp
+        d-aht20cpp
         pico_binary_info
         )
 

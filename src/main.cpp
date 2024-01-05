@@ -2,7 +2,7 @@
 #include "pico/stdlib.h"
 #include "pico/cyw43_arch.h"
 #include "hardware/gpio.h"
-#include "../libraries/d_aht20_cpp_pico/d_aht20.hpp"
+#include "../libraries/d-aht20-cpp-pico/d-aht20.hpp"
 
 #define FAN_PIN 15
 DHT20* my_sensor;
