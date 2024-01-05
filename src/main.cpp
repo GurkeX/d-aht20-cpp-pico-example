@@ -18,8 +18,8 @@ int main()
     // Initialize DHT20 Sensor
     my_sensor = new DHT20(true);
 
-    float upper_humidity_level = 70;
     float target_humidity = 60;
+    float upper_humidity_level = target_humidity + 10;
 
     while (1)
     {
