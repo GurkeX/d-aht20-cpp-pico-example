@@ -1,9 +1,9 @@
-add_library(d-aht20cpp
+add_library(d_aht20cpp
     STATIC
-    d-aht20.cpp
+    d_aht20.cpp
 )
 
-target_link_libraries(d-aht20cpp 
+target_link_libraries(d_aht20cpp 
                       pico_stdlib 
                       hardware_i2c
                       pico_binary_info)

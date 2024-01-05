@@ -2,7 +2,7 @@
 #include "pico/stdlib.h"
 #include "pico/cyw43_arch.h"
 #include "hardware/gpio.h"
-#include "d-aht20-cpp/d-aht20.hpp"
+#include "../libraries/d_aht20_cpp_pico/d_aht20.hpp"
 
 #define FAN_PIN 15
 DHT20* my_sensor;
@@ -18,26 +18,24 @@ int main()
     // Initialize DHT20 Sensor
     my_sensor = new DHT20(true);
 
-    float upper_humidity_level = 75;
-    float target_humidity = 20;
+    float upper_humidity_level = 70;
+    float target_humidity = 60;
 
     while (1)
     {
         my_sensor->getMeasurement();
-        if (my_sensor->getHumidity() > target_humidity) {
+        if (my_sensor->getHumidity() > upper_humidity_level) {
             fan_on(true);
-            puts("Fan on\n");
-            sleep_seconds(30);
-            fan_on(false);
+            puts("Humidity above upper limit, fan is turned on\n");
+            sleep_seconds(10);
         }
-        else {
-            while (my_sensor->getHumidity() < upper_humidity_level) {
-                my_sensor->getMeasurement();
-                puts("Fan off\n");
-                sleep_seconds(20);
-            }
+        else if (my_sensor->getHumidity() < target_humidity){
+            fan_on(false);
+            puts("Humidity target reached, fan is turned off");
+            sleep_seconds(10);
         }
         sleep_seconds(2);
+
     }
     return 0;
 }

@@ -4,7 +4,7 @@ Aosong AHT20/DHT20 object oriented sensor library for Raspberry Pi Pico.
 
 #include <string.h>
 
-#include "d-aht20.hpp"
+#include "d_aht20.hpp"
 
 DHT20::DHT20(bool auto_init_i2c) {
     // Set default i2c instance
